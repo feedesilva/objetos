@@ -1,0 +1,17 @@
+import example.*
+
+test "subir vikingo a Expedicion"{
+	const vikingo = new Soldado(casta = karl, armas = [5], vidasCobradas = 50)
+	const matanzas = new Aldea(cantCrucifijos = 15)
+	const habana = new Capital (factorRiqueza = 1.5)
+	const cuba = new Expedicion(aldea = matanzas, capital= habana, vikingos = [ragnar])
+	vikingo.irAExpedicion(cuba)
+	assert.that(cuba.vikingos() == [ragnar, vikingo])
+}
+
+test "una expedicion vale la pena"{
+	const matanzas = new Aldea(cantCrucifijos = 15)
+	const habana = new Capital (factorRiqueza = 1.5)
+	const cuba = new Expedicion(aldea = matanzas, capital= habana, vikingos = [ragnar])
+	assert.notThat(cuba.expVale())
+}
